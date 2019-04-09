@@ -1,0 +1,15 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+steps:
+- task: Docker@2
+  displayName: Build and push image
+  inputs:
+    containerRegistry: shasb
+    repository: endimages/helloworld
+    command: buildAndPush
+    Dockerfile: Dockerfile-app
+    tags: test
